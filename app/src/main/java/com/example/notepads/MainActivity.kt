@@ -1,6 +1,7 @@
 package com.example.notepads
 
 import android.content.DialogInterface
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -14,12 +15,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         itemList = fileData.readData(this)
-        var arrayAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,android.R.id.text1,itemList)
+        var arrayAdapter = ArrayAdapter(this,R.layout.item_color,android.R.id.text1,itemList)
         binding.lvList.adapter = arrayAdapter
         binding.btnAdd.setOnClickListener {
             var itemName : String = binding.edtNote.text.toString()
